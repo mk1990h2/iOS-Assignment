@@ -55,7 +55,7 @@ class ViewController: UIViewController {
                 blueBox.widthAnchor.constraint(equalToConstant: 50),
             ])
             blueBox.backgroundColor = .blue
-            s.addSubview(blueBox)
+            s.addArrangedSubview(blueBox)
         }
         return s
     }()
@@ -124,7 +124,7 @@ class ViewController: UIViewController {
     mainView.addSubview(redBox)
     NSLayoutConstraint.activate([
         redBox.heightAnchor.constraint(equalToConstant: 70),
-        redBox.widthAnchor.constraint(equalTo: mainView.widthAnchor, multiplier: 0.4),
+        redBox.widthAnchor.constraint(equalToConstant: 200),
         redBox.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 20),
         redBox.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -20)
     ])
@@ -148,10 +148,10 @@ class ViewController: UIViewController {
     // Add three blue boxes
     mainView.addSubview(stack)
     NSLayoutConstraint.activate([
-        stack.heightAnchor.constraint(equalTo: mainView.heightAnchor),
-        stack.widthAnchor.constraint(equalTo: mainView.widthAnchor),
-        stack.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 0),
-        stack.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: 0)
+        stack.heightAnchor.constraint(equalTo: mainView.heightAnchor, multiplier: 0.7),
+        stack.widthAnchor.constraint(equalToConstant: 50),
+        stack.centerXAnchor.constraint(equalTo: mainView.centerXAnchor),
+        stack.centerYAnchor.constraint(equalTo: mainView.centerYAnchor)
     ])
 
     heightAnchor = mainView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.7, constant: 0)
