@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Assignment3
+//  Assignment3_modify
 //
 //  Created by 佐藤美佳 on 2020/04/21.
 //  Copyright © 2020 Mika Sato. All rights reserved.
