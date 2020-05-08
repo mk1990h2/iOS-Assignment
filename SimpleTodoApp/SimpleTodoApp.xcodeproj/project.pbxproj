@@ -17,6 +17,7 @@
 		663E010F2465141F00E28C6E /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663E010E2465141F00E28C6E /* TodoTableViewCell.swift */; };
 		663E0111246515DC00E28C6E /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663E0110246515DC00E28C6E /* Todo.swift */; };
 		663E0113246525BF00E28C6E /* AddTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663E0112246525BF00E28C6E /* AddTodoViewController.swift */; };
+		663E01152466229900E28C6E /* EditTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663E01142466229900E28C6E /* EditTodoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		663E010E2465141F00E28C6E /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
 		663E0110246515DC00E28C6E /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		663E0112246525BF00E28C6E /* AddTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoViewController.swift; sourceTree = "<group>"; };
+		663E01142466229900E28C6E /* EditTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTodoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				663E010E2465141F00E28C6E /* TodoTableViewCell.swift */,
 				663E0110246515DC00E28C6E /* Todo.swift */,
 				663E0112246525BF00E28C6E /* AddTodoViewController.swift */,
+				663E01142466229900E28C6E /* EditTodoViewController.swift */,
 			);
 			path = SimpleTodoApp;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 			files = (
 				663E00FB24650BD200E28C6E /* ViewController.swift in Sources */,
 				663E0113246525BF00E28C6E /* AddTodoViewController.swift in Sources */,
+				663E01152466229900E28C6E /* EditTodoViewController.swift in Sources */,
 				663E0111246515DC00E28C6E /* Todo.swift in Sources */,
 				663E010D2465102800E28C6E /* TodoTableViewController.swift in Sources */,
 				663E00F724650BD200E28C6E /* AppDelegate.swift in Sources */,

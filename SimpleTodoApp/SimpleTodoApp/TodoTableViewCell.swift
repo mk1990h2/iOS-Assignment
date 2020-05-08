@@ -11,6 +11,8 @@ import UIKit
 class TodoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var todoTitle: UILabel!
+    @IBOutlet weak var isCompletedIcon: UIImageView!
+    @IBOutlet weak var isCompletedIconWidth: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,6 +20,8 @@ class TodoTableViewCell: UITableViewCell {
 
     func updateUI(with todo: Todo) {
         todoTitle.text = todo.title
+        isCompletedIcon.isHidden = !todo.isCompleted
     }
-
+    
+    
 }

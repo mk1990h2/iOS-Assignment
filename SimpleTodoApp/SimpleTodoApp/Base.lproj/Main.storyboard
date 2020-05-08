@@ -16,29 +16,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodoCell" id="EIh-14-xX2" customClass="TodoTableViewCell" customModule="SimpleTodoApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="414" height="45.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="TodoCell" id="EIh-14-xX2" customClass="TodoTableViewCell" customModule="SimpleTodoApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.5" width="414" height="54.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EIh-14-xX2" id="j0j-1C-Rt3">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="45.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="351" height="54.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todo Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4b-s6-p0Z">
-                                            <rect key="frame" x="12" y="8" width="390" height="29.5"/>
+                                            <rect key="frame" x="54" y="12.5" width="200" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="3ac-j4-L4X"/>
+                                                <constraint firstAttribute="height" constant="30" id="S6e-uq-ScE"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kle-v3-tp2">
+                                            <rect key="frame" x="12" y="15.5" width="30" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="5Zb-eW-FZg"/>
+                                                <constraint firstAttribute="height" constant="30" id="DgY-du-77Q"/>
+                                            </constraints>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="c4b-s6-p0Z" firstAttribute="leading" secondItem="j0j-1C-Rt3" secondAttribute="leading" constant="12" id="8Uu-j1-b7t"/>
-                                        <constraint firstAttribute="trailing" secondItem="c4b-s6-p0Z" secondAttribute="trailing" constant="12" id="DQZ-uV-jhC"/>
-                                        <constraint firstItem="c4b-s6-p0Z" firstAttribute="top" secondItem="j0j-1C-Rt3" secondAttribute="top" constant="8" id="JiV-hY-Fco"/>
-                                        <constraint firstAttribute="bottom" secondItem="c4b-s6-p0Z" secondAttribute="bottom" constant="8" id="psg-sm-o0G"/>
+                                        <constraint firstItem="c4b-s6-p0Z" firstAttribute="centerY" secondItem="j0j-1C-Rt3" secondAttribute="centerY" id="JzS-CL-CWv"/>
+                                        <constraint firstAttribute="bottom" secondItem="kle-v3-tp2" secondAttribute="bottom" constant="12" id="Yew-0F-yk7"/>
+                                        <constraint firstItem="c4b-s6-p0Z" firstAttribute="leading" secondItem="kle-v3-tp2" secondAttribute="trailing" constant="12" id="gtf-dJ-FBj"/>
+                                        <constraint firstItem="kle-v3-tp2" firstAttribute="top" secondItem="j0j-1C-Rt3" secondAttribute="top" constant="12" id="n4I-Mn-vgs"/>
+                                        <constraint firstItem="kle-v3-tp2" firstAttribute="leading" secondItem="j0j-1C-Rt3" secondAttribute="leading" constant="12" id="t5w-7W-l9w"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="isCompletedIcon" destination="kle-v3-tp2" id="aIL-jn-f2Q"/>
+                                    <outlet property="isCompletedIconWidth" destination="5Zb-eW-FZg" id="xMT-ar-SOt"/>
                                     <outlet property="todoTitle" destination="c4b-s6-p0Z" id="QHc-Y2-Bjg"/>
+                                    <segue destination="q2d-iE-L46" kind="show" identifier="toEditTodo" id="juG-Rd-vI9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -105,7 +121,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AHO-ds-Edr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="PgD-my-6nc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2618.840579710145" y="30.803571428571427"/>
+            <point key="canvasLocation" x="2619" y="-273"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2U9-xh-8yq">
@@ -141,7 +157,73 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t4h-Qm-P54" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1708.6956521739132" y="30.803571428571427"/>
+            <point key="canvasLocation" x="1872" y="-273"/>
+        </scene>
+        <!--Edit Todo Item-->
+        <scene sceneID="jkL-jA-SbC">
+            <objects>
+                <viewController id="Ztf-Zd-lQm" customClass="EditTodoViewController" customModule="SimpleTodoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ldA-gN-Udw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IUu-sy-7vI">
+                                <rect key="frame" x="12" y="100" width="390" height="45.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="editTodoTitle:" destination="Ztf-Zd-lQm" eventType="editingDidEnd" id="vhq-yX-GNi"/>
+                                    <action selector="onEditTodoTitle:" destination="Ztf-Zd-lQm" eventType="editingDidEnd" id="dOj-Ut-loX"/>
+                                    <action selector="returnKeyPressed:" destination="Ztf-Zd-lQm" eventType="primaryActionTriggered" id="I1L-xe-qia"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="IUu-sy-7vI" firstAttribute="leading" secondItem="mpe-HG-WYi" secondAttribute="leading" constant="12" id="G2Q-2z-IgX"/>
+                            <constraint firstItem="IUu-sy-7vI" firstAttribute="top" secondItem="mpe-HG-WYi" secondAttribute="top" constant="12" id="b99-d1-5er"/>
+                            <constraint firstItem="mpe-HG-WYi" firstAttribute="trailing" secondItem="IUu-sy-7vI" secondAttribute="trailing" constant="12" id="c5j-AT-Ih2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mpe-HG-WYi"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Todo Item" id="abR-uP-pQB">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="HnP-QD-gPm">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="Ztf-Zd-lQm" id="hoT-VV-4Fa"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="dsd-SL-HwC"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="dsd-SL-HwC" id="nC1-Yw-a72"/>
+                        <outlet property="todoTitle" destination="IUu-sy-7vI" id="agH-fF-mT5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FuR-Vb-5u5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2619" y="422"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zXL-EQ-8m5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q2d-iE-L46" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="XZb-qK-34e"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xwc-RN-4Xo">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ztf-Zd-lQm" kind="relationship" relationship="rootViewController" id="w7V-ge-Q1Q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xS6-5P-fe5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1871" y="422"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
+    </resources>
 </document>
