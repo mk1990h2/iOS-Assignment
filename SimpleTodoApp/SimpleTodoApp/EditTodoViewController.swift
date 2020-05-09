@@ -13,8 +13,9 @@ class EditTodoViewController: UIViewController {
     @IBOutlet weak var todoTitle: UITextField!
     @IBOutlet weak var doneButton: UIBarButtonItem!
 
-    static let unwindSegueId = "doneUnwind"
+    static let unwindSegueId = "doneUnwindEdit"
     var todo: Todo?
+    var indexPath: IndexPath?
         
     override func viewDidLoad() {
         super.viewDidLoad()

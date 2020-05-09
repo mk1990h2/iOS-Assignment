@@ -111,10 +111,12 @@ class TodoTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toEditTodo" {
-            let editVC = segue.destination as! EditTodoViewController
+            let nav = segue.destination as! UINavigationController
+            let editVC = nav.viewControllers.first as! EditTodoViewController
             let indexPath = tableView.indexPathForSelectedRow
             let todoList = getTodoList(indexPath!.section)
             editVC.todo = todoList[indexPath!.row]
+            editVC.indexPath = indexPath
         }
     }
     
@@ -123,7 +125,7 @@ class TodoTableViewController: UITableViewController {
         guard !tableView.isEditing else {
             return
         }
-        
+
         switch indexPath.section {
         case 0:
             highPriority[indexPath.row].isCompleted = !highPriority[indexPath.row].isCompleted
@@ -132,7 +134,8 @@ class TodoTableViewController: UITableViewController {
         default:
             lowPriority[indexPath.row].isCompleted = !lowPriority[indexPath.row].isCompleted
         }
-        
+
+        tableView.deselectRow(at: indexPath, animated: true)
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 
@@ -152,6 +155,22 @@ class TodoTableViewController: UITableViewController {
                     tableView.insertRows(at: [IndexPath(row: lowPriority.count - 1, section: 2)], with: .automatic)
                 }
             }
+        }
+        if segue.identifier == EditTodoViewController.unwindSegueId {
+            let sourceVC = segue.source as! EditTodoViewController
+            let todo = sourceVC.todo!
+            let indexPath = sourceVC.indexPath!
+
+            switch indexPath.section {
+            case 0:
+                highPriority[indexPath.row] = todo
+            case 1:
+                mediumPriority[indexPath.row] = todo
+            default:
+                lowPriority[indexPath.row] = todo
+            }
+
+            tableView.reloadData()
         }
     }
     

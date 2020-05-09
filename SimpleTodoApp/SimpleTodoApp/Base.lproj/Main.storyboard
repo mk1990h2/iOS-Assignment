@@ -52,9 +52,8 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="isCompletedIcon" destination="kle-v3-tp2" id="aIL-jn-f2Q"/>
-                                    <outlet property="isCompletedIconWidth" destination="5Zb-eW-FZg" id="xMT-ar-SOt"/>
                                     <outlet property="todoTitle" destination="c4b-s6-p0Z" id="QHc-Y2-Bjg"/>
-                                    <segue destination="q2d-iE-L46" kind="show" identifier="toEditTodo" id="juG-Rd-vI9"/>
+                                    <segue destination="q2d-iE-L46" kind="presentation" identifier="toEditTodo" id="juG-Rd-vI9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -109,7 +108,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="D12-FH-NSE">
                             <connections>
-                                <segue destination="PgD-my-6nc" kind="unwind" identifier="doneUnwind" unwindAction="unwindToTodoTableViewWithSegue:" id="wtH-cS-Ood"/>
+                                <segue destination="PgD-my-6nc" kind="unwind" identifier="doneUnwindAdd" unwindAction="unwindToTodoTableViewWithSegue:" id="wtH-cS-Ood"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -164,11 +163,11 @@
             <objects>
                 <viewController id="Ztf-Zd-lQm" customClass="EditTodoViewController" customModule="SimpleTodoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ldA-gN-Udw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IUu-sy-7vI">
-                                <rect key="frame" x="12" y="100" width="390" height="45.5"/>
+                                <rect key="frame" x="12" y="68" width="390" height="45.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -192,7 +191,11 @@
                                 <action selector="cancelButtonTapped:" destination="Ztf-Zd-lQm" id="hoT-VV-4Fa"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="dsd-SL-HwC"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="dsd-SL-HwC">
+                            <connections>
+                                <segue destination="a1O-pD-pub" kind="unwind" identifier="doneUnwindEdit" unwindAction="unwindToTodoTableViewWithSegue:" id="MzY-iD-tiF"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="doneButton" destination="dsd-SL-HwC" id="nC1-Yw-a72"/>
@@ -200,6 +203,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FuR-Vb-5u5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="a1O-pD-pub" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2619" y="422"/>
         </scene>
@@ -210,7 +214,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="XZb-qK-34e"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xwc-RN-4Xo">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

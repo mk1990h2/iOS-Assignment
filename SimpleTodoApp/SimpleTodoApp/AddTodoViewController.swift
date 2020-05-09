@@ -13,7 +13,7 @@ class AddTodoViewController: UIViewController {
     @IBOutlet var todoTitle: UITextField!
     @IBOutlet weak var doneButton: UIBarButtonItem!
 
-    static let unwindSegueId = "doneUnwind"
+    static let unwindSegueId = "doneUnwindAdd"
     var todo: Todo?
 
     override func viewDidLoad() {
